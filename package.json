@@ -1,0 +1,33 @@
+{
+  "name": "godden.dev",
+  "version": "1.0.0",
+  "description": "Web portfolio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganGodden/GODDEN.DEV.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "reactstrap",
+    "react",
+    "bootstrap",
+    "portfolio"
+  ],
+  "author": "Morgan Rose Godden",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/MorganGodden/GODDEN.DEV/issues"
+  },
+  "homepage": "https://github.com/MorganGodden/GODDEN.DEV#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reactstrap": "^8.9.0"
+  }
+}
