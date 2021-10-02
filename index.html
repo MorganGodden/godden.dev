@@ -1,12 +1,62 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>Home - godden.dev</title>
-            <link rel="stylesheet" href="style.css">
+            <title>> GODDEN.dev</title>
+            <link rel="stylesheet" href="./styles/style.css">
+            <link rel="stylesheet" href="./styles/icons/css/all.min.css">
+
+            <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+            <link rel="manifest" href="/site.webmanifest">
+
         </head>
-        <body>
-            <div>
-                <h1>Testing</h1>
+        <body class="fa-lg">
+            <div class="noanim">
+                <img src="images/Circuit Board.svg" alt="Backing" class="backing"></img>
             </div>
+            <div class="invisible">
+                <div class="header">
+                    <h1>Morgan Godden</h1>
+                    <hr></hr>
+                    <a href="https://github.com/MorganGodden/" target="_blank">
+                        <i class="fab fa-github responsive">
+                            <span class="tooltiptext">Github</span>
+                        </i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/morgan-godden/" target="_blank">
+                        <i class="fab fa-linkedin responsive">
+                            <span class="tooltiptext">LinkedIn</span>
+                        </i>
+                    </a>
+                    <a href="mailto:Morgan.Godden@outlook.com" target="_blank">
+                        <i class="fas fa-envelope responsive">
+                            <span class="tooltiptext">E-Mail</span>
+                        </i>
+                    </a>
+                </div>
+                <div class="content"> 
+                    <ul>
+                        <a href="pages/projects.html" class="responsive" target="_blank">Projects</a> -
+                        <a href="" class="responsive" target="_blank">Staywell App</a> -
+                        <a href="pages/portfolio.pdf" target="_blank" class="responsive">Portfolio</a>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                var all = document.querySelector("html");
+                var box = document.querySelector(".backing");
+                var pageX = document.getElementById("x");
+                var pageY = document.getElementById("y");
+    
+                function updateDisplay(event) {
+                    box.style.left = "calc(-2.5vw + " + event.pageX + "px/40)";
+                    box.style.top = "calc(-2.5vh + " + event.pageY + "px/40)";
+                }
+    
+                all.addEventListener("mousemove", updateDisplay, false);
+                all.addEventListener("mouseenter", updateDisplay, false);
+                all.addEventListener("mouseleave", updateDisplay, false);
+            </script>
         </body>
     </html>

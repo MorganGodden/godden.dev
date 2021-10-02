@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap");
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8) rotateX(-40deg) translateY(-5vh);
+            transform: scale(0.8) rotateX(-40deg) translateY(-5vh);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8) rotateX(-40deg) translateY(-5vh);
+            transform: scale(0.8) rotateX(-40deg) translateY(-5vh);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+div:not(.invisible):nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+div:not(.invisible):nth-child(2) {
+  -webkit-animation-delay: 0.125s;
+          animation-delay: 0.125s;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  padding: 0;
+  background-color: #2c2833;
+  font-family: "Averia Serif Libre", cursive;
+  text-align: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2c2833), color-stop(25%, #2c2833), to(#19181d));
+  background: linear-gradient(180deg, #2c2833 0%, #2c2833 25%, #19181d 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+div:not(.invisible, .noanim) {
+  border-radius: 5px;
+  background-color: #ebebeb;
+  -webkit-box-shadow: 0 0 15px #0000007e;
+          box-shadow: 0 0 15px #0000007e;
+  -webkit-animation: 1s ease-in-out both fade-in;
+          animation: 1s ease-in-out both fade-in;
+}
+
+.invisible {
+  width: 80vw;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.header {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-top: 35vh;
+}
+
+.content {
+  margin: 0 auto;
+  margin-top: 2.25vh;
+  width: 80%;
+  padding: 1px;
+}
+
+.responsive {
+  padding: 0 0.5vw;
+  text-shadow: 0;
+  -webkit-transition: font-size, text-shadow 0.2s, color 0.2s;
+  transition: font-size, text-shadow 0.2s, color 0.2s;
+}
+
+.responsive:hover {
+  color: black;
+  text-shadow: 0 0 1px #0000007e, 0 0 24px white;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tooltiptext {
+  opacity: 0;
+  width: 100px;
+  top: 100%;
+  left: 50%;
+  margin-left: -55px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  background-color: #ebebeb;
+  color: #2c2833;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  z-index: 1;
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.2s;
+  transition: opacity 0.5s, -webkit-transform 0.2s;
+  transition: transform 0.2s, opacity 0.5s;
+  transition: transform 0.2s, opacity 0.5s, -webkit-transform 0.2s;
+}
+
+div:has(.backing) {
+  width: 10000px;
+  height: 20000px;
+  position: relative;
+  color: red;
+}
+
+.backing {
+  top: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  min-width: 102.5%;
+  min-height: 102.5%;
+  margin: auto;
+  position: absolute;
+  display: block;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+hr {
+  width: 80%;
+  height: 2px;
+  border: 0;
+  background-color: #2c2833;
+}
+
+h1 {
+  font-size: 300%;
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+
+i {
+  font-size: calc(100% + 1.5vh);
+}
+
+i:hover .tooltiptext {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  opacity: 1;
+}
+
+i, a {
+  cursor: pointer;
+}
+
+h1, h2, h3, p, i, a {
+  text-shadow: 0 0 1px #0000007e;
+  color: #2c2833;
+  cursor: default;
+  text-decoration: none;
+}
+
+::-moz-selection {
+  background: #00000025;
+}
+
+::selection {
+  background: #00000025;
+}
+/*# sourceMappingURL=style.css.map */
