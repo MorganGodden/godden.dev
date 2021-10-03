@@ -30,7 +30,7 @@ body {
 
         background: url("../images/Circuit Board.svg") repeat center center fixed; 
         background-position: var(--x) var(--y);
-        background-size: 105%;
+        background-size: calc(120vh + 50vw);
     }
 }
 
