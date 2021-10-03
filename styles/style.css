@@ -137,12 +137,12 @@ div:has(.backing) {
   left: 0;
   height: auto;
   width: auto;
-  min-width: 102.5%;
-  min-height: 102.5%;
+  min-width: 105%;
+  min-height: 105%;
   margin: auto;
   position: absolute;
   display: block;
-  opacity: 0.05;
+  opacity: 0.03;
   pointer-events: none;
 }
 

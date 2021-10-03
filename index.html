@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>> GODDEN.dev</title>
+            <title>- GODDEN.dev</title>
             <link rel="stylesheet" href="./styles/style.css">
             <link rel="stylesheet" href="./styles/icons/css/all.min.css">
 
@@ -38,25 +38,43 @@
                 <div class="content"> 
                     <ul>
                         <a href="pages/projects.html" class="responsive" target="_blank">Projects</a> -
-                        <a href="" class="responsive" target="_blank">Staywell App</a> -
-                        <a href="pages/portfolio.pdf" target="_blank" class="responsive">Portfolio</a>
+                        <a href="pages/portfolio.pdf" target="_blank" class="responsive">Résumé</a> -
+                        <a href="" class="responsive" target="_blank">Staywell App</a>
                     </ul>
                 </div>
             </div>
             <script>
                 var all = document.querySelector("html");
-                var box = document.querySelector(".backing");
+                var backing = document.querySelector(".backing");
                 var pageX = document.getElementById("x");
                 var pageY = document.getElementById("y");
     
-                function updateDisplay(event) {
-                    box.style.left = "calc(-2.5vw + " + event.pageX + "px/40)";
-                    box.style.top = "calc(-2.5vh + " + event.pageY + "px/40)";
+                var curX = 0, curY = 0, finX = 0, finY = 0;
+
+                requestAnimationFrame(updatePositions);
+
+                function updatePositions() {
+                    curX = lerp(curX, finX, 0.25);
+                    curY = lerp(curY, finY, 0.25);
+
+                    backing.style.left = "calc(-4vw + " + curX + "px/25)";
+                    backing.style.top = "calc(-4vh + " + curY + "px/25)";
+                    requestAnimationFrame(updatePositions);
+                }
+
+                function updateValues(event) {
+                    finX = event.pageX;
+                    finY = event.pageY;
+                }
+
+                function lerp (start, end, amt){
+                    return (1-amt)*start+amt*end
                 }
     
-                all.addEventListener("mousemove", updateDisplay, false);
-                all.addEventListener("mouseenter", updateDisplay, false);
-                all.addEventListener("mouseleave", updateDisplay, false);
+                all.addEventListener("mousemove", updateValues, false);
+                all.addEventListener("mouseenter", updateValues, false);
+                all.addEventListener("mouseleave", updateValues, false);
+                all.addEventListener("touchmove", updateValues, false);
             </script>
         </body>
     </html>
