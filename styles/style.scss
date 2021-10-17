@@ -2,6 +2,7 @@
 @import 'animations';
 @import 'constants';
 
+
 html {
     font-family: $font;
     text-align: center;
@@ -35,7 +36,8 @@ body {
 }
 
 div:not(.invisible, .noanim) {
-    border-radius: 5px;
+    border-radius: 4px;
+
     background-color: $col_foreground;
     box-shadow: 0 0 15px $col_shadows;
 
@@ -67,7 +69,7 @@ div:not(.invisible, .noanim) {
 }
 
 .responsive {
-    padding: 0 0.5vw;
+    padding: 0 calc(3px + 0.3vh);
 
     text-shadow: 0;
     transition: font-size, text-shadow 0.2s, color 0.2s;

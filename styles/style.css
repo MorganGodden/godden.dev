@@ -71,7 +71,7 @@ body::after {
 }
 
 div:not(.invisible, .noanim) {
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #ebebeb;
   -webkit-box-shadow: 0 0 15px #0000007e;
           box-shadow: 0 0 15px #0000007e;
@@ -101,7 +101,7 @@ div:not(.invisible, .noanim) {
 }
 
 .responsive {
-  padding: 0 0.5vw;
+  padding: 0 calc(3px + 0.3vh);
   text-shadow: 0;
   -webkit-transition: font-size, text-shadow 0.2s, color 0.2s;
   transition: font-size, text-shadow 0.2s, color 0.2s;
