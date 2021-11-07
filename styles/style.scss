@@ -42,9 +42,9 @@ div:not(.invisible, .noanim) {
     border-radius: 6px;
     
     background: rgb(2,0,36);
-    background: linear-gradient(175deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(238,238,238,1) 50%);
+    background: linear-gradient(175deg, rgb(255, 255, 255) 0%, rgb(230, 230, 230) 90%);
 
-    box-shadow: 5px 10px 15px $col_shadows, -5px -5px 20px rgba(255, 255, 255, 0.07);
+    box-shadow: 5px 7px 15px $col_shadows, -4px -5px 20px rgba(255, 255, 255, 0.07);
 
     animation: 1s ease-in-out both fade-in;
     transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
@@ -102,7 +102,7 @@ div:not(.invisible, .noanim) {
     position: absolute;
     
     z-index: 1;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.1s;
   }
 
   div:has(.backing) {
