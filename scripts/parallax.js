@@ -8,8 +8,8 @@ function updatePositions() {
     curX = lerp(curX, finX, 0.25);
     curY = lerp(curY, finY, 0.25);
 
-    body.style.setProperty("--x", "calc(-4vw + " + curX + "px/40)"); 
-    body.style.setProperty("--y", "calc(-4vh + " + curY + "px/40)");
+    body.style.setProperty("--x", "calc(-4vw + " + curX + "px/50)"); 
+    body.style.setProperty("--y", "calc(-4vh + " + curY + "px/50)");
 
     requestAnimationFrame(updatePositions);
 }

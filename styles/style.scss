@@ -43,11 +43,11 @@ div:not(.invisible, .noanim) {
     
     background: rgb(2,0,36);
     background: linear-gradient(175deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(238,238,238,1) 50%);
-    
-    box-shadow: 0 10px 15px $col_shadows;
+
+    box-shadow: 5px 10px 15px $col_shadows, -5px -5px 20px rgba(255, 255, 255, 0.07);
 
     animation: 1s ease-in-out both fade-in;
-    transform: translate(calc(var(--x)/-3), calc(var(--y)/-3));
+    transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
 }
 
 .invisible {
@@ -98,11 +98,11 @@ div:not(.invisible, .noanim) {
     font-size: 1rem;
     font-weight: bold;
    
-    position: absolute;
     transform: translateY(-2px);
-
+    position: absolute;
+    
     z-index: 1;
-    transition: transform 0.2s, opacity 0.5s;
+    transition: transform 0.2s, opacity 0.2s;
   }
 
   div:has(.backing) {
@@ -155,7 +155,7 @@ i {
 
 
 h1, h2, h3, p, i, a {
-    text-shadow: 0 1px 1.5px $col_shadows;
+    text-shadow: 0px 1px 1.5px $col_shadows, -2px -2px 2.5px white;
     color: $col_text;
     cursor: default;
     text-decoration: none;
@@ -166,8 +166,9 @@ i, a {
 }
 
 .responsive {
-    transition: text-shadow 0.2s, color 0.2s, transform, font-weight;
+    transition: color 0.2s, transform 0.1s;
     &:hover {
+        filter: blur(0);
         color: black;
         text-shadow: none;
         transform: scale(1.1);

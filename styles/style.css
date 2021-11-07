@@ -76,12 +76,12 @@ div:not(.invisible, .noanim) {
   border-radius: 6px;
   background: #020024;
   background: linear-gradient(175deg, #020024 0%, white 0%, #eeeeee 50%);
-  -webkit-box-shadow: 0 10px 15px #00000050;
-          box-shadow: 0 10px 15px #00000050;
+  -webkit-box-shadow: 5px 10px 15px #00000050, -5px -5px 20px rgba(255, 255, 255, 0.07);
+          box-shadow: 5px 10px 15px #00000050, -5px -5px 20px rgba(255, 255, 255, 0.07);
   -webkit-animation: 1s ease-in-out both fade-in;
           animation: 1s ease-in-out both fade-in;
-  -webkit-transform: translate(calc(var(--x)/-3), calc(var(--y)/-3));
-          transform: translate(calc(var(--x)/-3), calc(var(--y)/-3));
+  -webkit-transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
+          transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
 }
 
 .invisible {
@@ -122,14 +122,14 @@ div:not(.invisible, .noanim) {
   border-radius: 6px;
   font-size: 1rem;
   font-weight: bold;
-  position: absolute;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
+  position: absolute;
   z-index: 1;
-  -webkit-transition: opacity 0.5s, -webkit-transform 0.2s;
-  transition: opacity 0.5s, -webkit-transform 0.2s;
-  transition: transform 0.2s, opacity 0.5s;
-  transition: transform 0.2s, opacity 0.5s, -webkit-transform 0.2s;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
 }
 
 div:has(.backing) {
@@ -179,7 +179,7 @@ i:hover .tooltiptext {
 }
 
 h1, h2, h3, p, i, a {
-  text-shadow: 0 1px 1.5px #00000050;
+  text-shadow: 0px 1px 1.5px #00000050, -2px -2px 2.5px white;
   color: #2c2833;
   cursor: default;
   text-decoration: none;
@@ -190,13 +190,15 @@ i, a {
 }
 
 .responsive {
-  -webkit-transition: text-shadow 0.2s, color 0.2s, font-weight, -webkit-transform;
-  transition: text-shadow 0.2s, color 0.2s, font-weight, -webkit-transform;
-  transition: text-shadow 0.2s, color 0.2s, transform, font-weight;
-  transition: text-shadow 0.2s, color 0.2s, transform, font-weight, -webkit-transform;
+  -webkit-transition: color 0.2s, -webkit-transform 0.1s;
+  transition: color 0.2s, -webkit-transform 0.1s;
+  transition: color 0.2s, transform 0.1s;
+  transition: color 0.2s, transform 0.1s, -webkit-transform 0.1s;
 }
 
 .responsive:hover {
+  -webkit-filter: blur(0);
+          filter: blur(0);
   color: black;
   text-shadow: none;
   -webkit-transform: scale(1.1);
