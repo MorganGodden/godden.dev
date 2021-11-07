@@ -19,6 +19,8 @@ body {
     
     height: 100vh;
     width: 100vw;
+    
+    box-shadow: inset 0 0 8vw $col_shadows;
     &::after {
         content: "";
         opacity: 0.05;
@@ -32,16 +34,20 @@ body {
         background: url("../images/Circuit Board.svg") repeat center center fixed; 
         background-position: var(--x) var(--y);
         background-size: calc(120vh + 50vw);
+        
     }
 }
 
 div:not(.invisible, .noanim) {
-    border-radius: 4px;
-
-    background-color: $col_foreground;
-    box-shadow: 0 0 15px $col_shadows;
+    border-radius: 6px;
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(175deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(238,238,238,1) 50%);
+    
+    box-shadow: 0 10px 15px $col_shadows;
 
     animation: 1s ease-in-out both fade-in;
+    transform: translate(calc(var(--x)/-3), calc(var(--y)/-3));
 }
 
 .invisible {
@@ -61,23 +67,14 @@ div:not(.invisible, .noanim) {
 }
 
 .content {
-    margin: 0 auto;
-    margin-top: 2.25vh;
+    display: inline-block;
     
-    width: 80%;
-    padding: 1px;
-}
-
-.responsive {
-    padding: 0 calc(3px + 0.3vh);
-
-    text-shadow: 0;
-    transition: font-size, text-shadow 0.2s, color 0.2s;
-    &:hover {
-        color: black;
-        text-shadow: 0 0 1px $col_shadows, 0 0 24px white;
-        transform: scale(1.1);
-    }
+    margin: 0 0.35vw;
+    margin-top: calc(0.05vw + 1.75vh);
+    
+    width: 40%;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 }
 
 .tooltiptext {
@@ -131,7 +128,7 @@ div:not(.invisible, .noanim) {
 
 hr {
     width: 80%;
-    height: 2px;
+    height: calc(0.07vw + 0.07vh);
 
     border: 0;
     background-color: $col_text;
@@ -139,11 +136,12 @@ hr {
 
 
 h1 {
-    font-size: 300%;
+    font-size: calc(1.5vw + 3.75vh);
     transform: translateY(5px);
 }
 
 i { 
+    padding: 0 calc(3px + 0.3vh);
     font-size: calc(100% + 1.5vh); 
     &:hover .tooltiptext {
         transform: translateY(5px);
@@ -151,15 +149,33 @@ i {
     }
 }
 
+.content, a, p {
+    font-size: calc(0.2vw + 2vh);
+}
+
+
+h1, h2, h3, p, i, a {
+    text-shadow: 0 1px 1.5px $col_shadows;
+    color: $col_text;
+    cursor: default;
+    text-decoration: none;
+}
+
 i, a {
     cursor: pointer;
 }
 
-h1, h2, h3, p, i, a {
-    text-shadow: 0 0 1px $col_shadows;
-    color: $col_text;
-    cursor: default;
-    text-decoration: none;
+.responsive {
+    transition: text-shadow 0.2s, color 0.2s, transform, font-weight;
+    &:hover {
+        color: black;
+        text-shadow: none;
+        transform: scale(1.1);
+    }
+}
+
+a.responsive:hover {
+    font-weight: 600;
 }
 
 ::selection {

@@ -10,6 +10,6 @@
   @for $i from 1 through 2 {
     div:not(.invisible):nth-child(#{$i}) {
         // Delay the animation. Delay increases as items loop.
-        animation-delay: ($i - 1) * (1s / 8);
+        animation-delay: 0; //($i - 1) * (1s / 8);
     }
   }
