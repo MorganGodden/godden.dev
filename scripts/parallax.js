@@ -1,5 +1,5 @@
 var body = document.querySelector("body");
-var curX = 0, curY = 0, finX = 0, finY = 0;
+var curX = 0, curY = 0, finX = 0, finY = 0, hue = 0;
 
 
 requestAnimationFrame(updatePositions);
@@ -8,9 +8,13 @@ function updatePositions() {
     curX = lerp(curX, finX, 0.25);
     curY = lerp(curY, finY, 0.25);
 
-    body.style.setProperty("--x", "calc(-4vw + " + curX + "px/50)"); 
-    body.style.setProperty("--y", "calc(-4vh + " + curY + "px/50)");
+    body.style.setProperty("--x", "calc(-4vw + " + curX + "px/100)"); 
+    body.style.setProperty("--y", "calc(-4vh + " + curY + "px/100)");
+    body.style.setProperty("--h",  hue);
 
+    hue += 1.5;
+    if(hue > 255) hue = 0;
+    
     requestAnimationFrame(updatePositions);
 }
 

@@ -34,20 +34,7 @@ body {
         background: url("../images/Circuit Board.svg") repeat center center fixed; 
         background-position: var(--x) var(--y);
         background-size: calc(120vh + 50vw);
-        
     }
-}
-
-div:not(.invisible, .noanim) {
-    border-radius: 6px;
-    
-    background: rgb(2,0,36);
-    background: linear-gradient(175deg, rgb(255, 255, 255) 0%, rgb(230, 230, 230) 90%);
-
-    box-shadow: 5px 7px 15px $col_shadows, -4px -5px 20px rgba(255, 255, 255, 0.07);
-
-    animation: 1s ease-in-out both fade-in;
-    transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
 }
 
 .invisible {
@@ -60,34 +47,52 @@ div:not(.invisible, .noanim) {
     text-align: center;
 }
 
+div:not(.invisible, .noanim), .content {
+    border-radius: 6px;
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(175deg, rgb(255, 255, 255) 0%, rgb(230, 230, 230) 90%);
+
+    box-shadow: 5px 7px 15px $col_shadows, -4px -5px 20px rgba(255, 255, 255, 0.07);
+
+    animation: 1s ease-in-out both fade-in;
+    transform: translate(calc(-2vw + var(--x)/-2), calc(-2vh + var(--y)/-2));
+
+    outline: 0px solid white;
+    transition: 0.15s outline;
+    div:not(.invisible, .noanim):hover, .content:hover { 
+        outline: 3px solid hsla(var(--h), 100%, 50%, 50%);
+    }
+}
+
 .header {
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 1vh;
+    padding-bottom: calc(10px + 0.5vh);
 }
 
 .content {
     display: inline-block;
     
-    margin: 0 0.35vw;
-    margin-top: calc(0.05vw + 1.75vh);
+    margin: 0 0.40vw;
+    margin-top: calc(0.5vw + 1vh);
     
     width: 40%;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
+    padding-top: calc(1.2vh + 0.25vw);
+    padding-bottom: calc(1.2vh + 0.25vw);
 }
 
 .tooltiptext {
     opacity: 0;
 
-    width: 100px;
+    width: 90px;
     top: 100%;
     left: 50%;
 
-    margin-left: -55px;
+    margin-left: -50px;
     padding-left: 5px;
     padding-right: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
 
     background-color: $col_foreground;
     color: $col_text;
@@ -136,21 +141,33 @@ hr {
 
 
 h1 {
-    font-size: calc(1.5vw + 3.75vh);
+    font-size: calc(1.75vw + 3.3vh);
     transform: translateY(5px);
 }
 
+h3, p {
+    margin: 0;
+    font-size: calc(8px + 0.4vw + 0.9vh);
+    font-weight: normal;
+}
+
 i { 
-    padding: 0 calc(3px + 0.3vh);
-    font-size: calc(100% + 1.5vh); 
+    margin-top: 0.1vh;
+    margin-bottom: 0.1vw;
+    padding: 0 calc(2px + 0.2vh);
+    font-size: calc(50% + 1.5vh + 0.75vw); 
     &:hover .tooltiptext {
-        transform: translateY(5px);
+        transform: translateY(2px);
         opacity: 1;
     }
 }
 
-.content, a, p {
-    font-size: calc(0.2vw + 2vh);
+a{
+    font-size: calc(10px + 0.5vw + 1.25vh);
+}
+
+p{
+    padding-bottom: 1vh;
 }
 
 
@@ -161,22 +178,25 @@ h1, h2, h3, p, i, a {
     text-decoration: none;
 }
 
-i, a {
-    cursor: pointer;
-}
 
 .responsive {
+    cursor: pointer;
     transition: color 0.2s, transform 0.1s;
-    &:hover {
-        filter: blur(0);
+    &:hover:not(h3) { 
         color: black;
         text-shadow: none;
-        transform: scale(1.1);
+        transform: scale(110%);
     }
 }
 
-a.responsive:hover {
-    font-weight: 600;
+.content {
+    cursor: pointer;
+    &:hover h3{
+        color: black;
+        text-shadow: none;
+        font-weight: bold;
+        transform: scale(105%);
+    }
 }
 
 ::selection {

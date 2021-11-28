@@ -72,18 +72,6 @@ body::after {
   background-size: calc(120vh + 50vw);
 }
 
-div:not(.invisible, .noanim) {
-  border-radius: 6px;
-  background: #020024;
-  background: linear-gradient(175deg, white 0%, #e6e6e6 90%);
-  -webkit-box-shadow: 5px 7px 15px #00000050, -4px -5px 20px rgba(255, 255, 255, 0.07);
-          box-shadow: 5px 7px 15px #00000050, -4px -5px 20px rgba(255, 255, 255, 0.07);
-  -webkit-animation: 1s ease-in-out both fade-in;
-          animation: 1s ease-in-out both fade-in;
-  -webkit-transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
-          transform: translate(calc(var(--x)/-2.5), calc(var(--y)/-2.5));
-}
-
 .invisible {
   width: 80vw;
   max-width: 700px;
@@ -92,30 +80,49 @@ div:not(.invisible, .noanim) {
   text-align: center;
 }
 
+div:not(.invisible, .noanim), .content {
+  border-radius: 6px;
+  background: #020024;
+  background: linear-gradient(175deg, white 0%, #e6e6e6 90%);
+  -webkit-box-shadow: 5px 7px 15px #00000050, -4px -5px 20px rgba(255, 255, 255, 0.07);
+          box-shadow: 5px 7px 15px #00000050, -4px -5px 20px rgba(255, 255, 255, 0.07);
+  -webkit-animation: 1s ease-in-out both fade-in;
+          animation: 1s ease-in-out both fade-in;
+  -webkit-transform: translate(calc(-2vw + var(--x)/-2), calc(-2vh + var(--y)/-2));
+          transform: translate(calc(-2vw + var(--x)/-2), calc(-2vh + var(--y)/-2));
+  outline: 0px solid white;
+  -webkit-transition: 0.15s outline;
+  transition: 0.15s outline;
+}
+
+div div:hover, div .content:hover, .content div:hover, .content .content:hover {
+  outline: 3px solid hsla(var(--h), 100%, 50%, 50%);
+}
+
 .header {
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 1vh;
+  padding-bottom: calc(10px + 0.5vh);
 }
 
 .content {
   display: inline-block;
-  margin: 0 0.35vw;
-  margin-top: calc(0.05vw + 1.75vh);
+  margin: 0 0.40vw;
+  margin-top: calc(0.5vw + 1vh);
   width: 40%;
-  padding-top: 1.5vh;
-  padding-bottom: 1.5vh;
+  padding-top: calc(1.2vh + 0.25vw);
+  padding-bottom: calc(1.2vh + 0.25vw);
 }
 
 .tooltiptext {
   opacity: 0;
-  width: 100px;
+  width: 90px;
   top: 100%;
   left: 50%;
-  margin-left: -55px;
+  margin-left: -50px;
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   background-color: #ebebeb;
   color: #2c2833;
   text-align: center;
@@ -158,24 +165,36 @@ hr {
 }
 
 h1 {
-  font-size: calc(1.5vw + 3.75vh);
+  font-size: calc(1.75vw + 3.3vh);
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
+}
+
+h3, p {
+  margin: 0;
+  font-size: calc(8px + 0.4vw + 0.9vh);
+  font-weight: normal;
 }
 
 i {
-  padding: 0 calc(3px + 0.3vh);
-  font-size: calc(100% + 1.5vh);
+  margin-top: 0.1vh;
+  margin-bottom: 0.1vw;
+  padding: 0 calc(2px + 0.2vh);
+  font-size: calc(50% + 1.5vh + 0.75vw);
 }
 
 i:hover .tooltiptext {
-  -webkit-transform: translateY(5px);
-          transform: translateY(5px);
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
   opacity: 1;
 }
 
-.content, a, p {
-  font-size: calc(0.2vw + 2vh);
+a {
+  font-size: calc(10px + 0.5vw + 1.25vh);
+}
+
+p {
+  padding-bottom: 1vh;
 }
 
 h1, h2, h3, p, i, a {
@@ -185,28 +204,31 @@ h1, h2, h3, p, i, a {
   text-decoration: none;
 }
 
-i, a {
-  cursor: pointer;
-}
-
 .responsive {
+  cursor: pointer;
   -webkit-transition: color 0.2s, -webkit-transform 0.1s;
   transition: color 0.2s, -webkit-transform 0.1s;
   transition: color 0.2s, transform 0.1s;
   transition: color 0.2s, transform 0.1s, -webkit-transform 0.1s;
 }
 
-.responsive:hover {
-  -webkit-filter: blur(0);
-          filter: blur(0);
+.responsive:hover:not(h3) {
   color: black;
   text-shadow: none;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(110%);
+          transform: scale(110%);
 }
 
-a.responsive:hover {
-  font-weight: 600;
+.content {
+  cursor: pointer;
+}
+
+.content:hover h3 {
+  color: black;
+  text-shadow: none;
+  font-weight: bold;
+  -webkit-transform: scale(105%);
+          transform: scale(105%);
 }
 
 ::-moz-selection {
