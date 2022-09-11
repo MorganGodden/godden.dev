@@ -15,7 +15,7 @@ export default function Projects() {
             <ul>
                 <a href={fissionProject} target="_blank" rel='noreferrer'>The Fission Project</a>
                 <p>Role: <b>Web Developer</b></p>
-                <p>Entry into a 32 hour RollsRoyce hackathon centered around raising awareness in today's youth about sustainable power generation.</p>
+                <p>Entry into a 32 hour Rolls Royce hackathon, it focused on raising awareness in today's youth about sustainable power generation.</p>
             </ul>
         </div>
         <iframe title='Idle n Die' frameborder="0" src="https://itch.io/embed/1622418?dark=true" width="552" height="167"><a href="https://goddendev.itch.io/idle-n-die">Idle n Die by godden.dev</a></iframe>
