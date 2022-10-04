@@ -21,25 +21,26 @@ export default function Home() {
       <p id='mobileText'>Mobile Version is Under Construction.</p>
       <div id='content'>
         <Header />
-  
-        <ContentElement title="Position" lines={[
-          <TextLine text='Software Engineer'/>,
-        ]}/>
-        <ContentElement title="Contact" lines={[
-          <LinkLine text='GitHub' ico={ico_github} link={github} newTab={true}/>,
-          <LinkLine text='LinkedIn' ico={ico_linkedin} link={linkedIn} newTab={true}/>,
-          <LinkLine text='Mail' ico={ico_mail} link={mail} newTab={true}/>
-        ]}/>
-        <ContentElement title="Projects" lines={[
-          <LinkLine text="This Website" link={github_website} newTab={true} smallText={'Github'}/>, <br/>,
-          <LinkLine text="Game Jams & Hackathons" link={'./projects'}/>
-        ]}/>
-        <ContentElement title="Features" lines={[
-          <HoverLine text="Front-end Web Dev" tooltip="React, SASS"/>,
-          <HoverLine text="Back-end Web Dev" tooltip="LAMP Stack"/>,
-          <HoverLine text="Game Development Tools" tooltip="Unity, Blender"/>
-        ]}/>
-  
+        <div>
+          <div id='contentBacking'/>
+          <ContentElement title="Position" lines={[
+            <TextLine text='Software Engineer'/>,
+          ]}/>
+          <ContentElement title="Contact" lines={[
+            <LinkLine text='GitHub' ico={ico_github} link={github} newTab={true}/>,
+            <LinkLine text='LinkedIn' ico={ico_linkedin} link={linkedIn} newTab={true}/>,
+            <LinkLine text='Mail' ico={ico_mail} link={mail} newTab={true}/>
+          ]}/>
+          <ContentElement title="Projects" lines={[
+            <LinkLine text="This Website" link={github_website} newTab={true} smallText={'Github'}/>, <br/>,
+            <LinkLine text="Game Jams & Hackathons" link={'./projects'}/>
+          ]}/>
+          <ContentElement title="Features" lines={[
+            <HoverLine text="Front-end Web Dev" tooltip="React, SASS"/>,
+            <HoverLine text="Back-end Web Dev" tooltip="LAMP Stack"/>,
+            <HoverLine text="Game Development Tools" tooltip="Unity, Blender"/>
+          ]}/>
+        </div>
         <Footer />
       </div>
     </div>

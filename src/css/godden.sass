@@ -92,12 +92,23 @@ p
     font-weight: bold;
     text-decoration: none;
 
+#contentBacking
+    position: absolute;
+
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+    
+    filter: blur(15px);
+    background-color: rgba(10, 10, 10, 0.5);
+    z-index: -1;
+
 .h3Div 
     margin: 14px 39px 14px 39px;
     display: flex;
     text-align: left;
     font-size: 110%;
-    
     
     h3
         font-weight: normal;
@@ -112,6 +123,7 @@ p
         font-weight: bold;
         letter-spacing: 0.04em;
     .hash
+        line-height: 1.4;
         width: 4%;
 
     h3, .ElementLine
@@ -200,7 +212,7 @@ hr
 #backBtn
     position: absolute;
     left: 0;
-    transform: translateX(85px) translateY(17px);
+    transform: translateX(85px) translateY(8px);
     text-decoration: none;
     transition: 150ms color; 
     &:hover
@@ -217,9 +229,8 @@ hr
 
     position: absolute;
 
-    mix-blend-mode: normal;
-    opacity: 5% !important;
-    filter: blur(20px);
+    opacity: 15% !important;
+    filter: blur(15px);
 
 #webPreview
     height: 167px;

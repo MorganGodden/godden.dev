@@ -100,6 +100,18 @@ p {
   text-decoration: none;
 }
 
+#contentBacking {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  bottom: 25px;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  background-color: rgba(10, 10, 10, 0.5);
+  z-index: -1;
+}
+
 .h3Div {
   margin: 14px 39px 14px 39px;
   display: -webkit-box;
@@ -126,6 +138,7 @@ p {
 }
 
 .h3Div .hash {
+  line-height: 1.4;
   width: 4%;
 }
 
@@ -242,8 +255,8 @@ hr {
 #backBtn {
   position: absolute;
   left: 0;
-  -webkit-transform: translateX(85px) translateY(17px);
-          transform: translateX(85px) translateY(17px);
+  -webkit-transform: translateX(85px) translateY(8px);
+          transform: translateX(85px) translateY(8px);
   text-decoration: none;
   -webkit-transition: 150ms color;
   transition: 150ms color;
@@ -263,10 +276,9 @@ hr {
      object-fit: cover;
   pointer-events: none;
   position: absolute;
-  mix-blend-mode: normal;
-  opacity: 5% !important;
-  -webkit-filter: blur(20px);
-          filter: blur(20px);
+  opacity: 15% !important;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
 }
 
 #webPreview {
