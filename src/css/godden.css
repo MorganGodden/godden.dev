@@ -144,6 +144,7 @@ p {
 .h3Div .hash {
   line-height: 1.4;
   width: 4%;
+  margin-top: -2px;
 }
 
 .h3Div .slash {
@@ -156,8 +157,8 @@ p {
   letter-spacing: 0.06em;
 }
 
-.h3Div h3, .h3Div .elementLine {
-  margin: 5px 0 5px 0;
+.h3Div h3, .h3Div .elementLine, .h3Div .underline {
+  margin: 2px 0 2px 0;
 }
 
 .h3Div a {

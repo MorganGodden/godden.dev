@@ -24,7 +24,7 @@ export function LinkLine(props) {
   </span>
 
   return (!String(props.link).includes(":")) // If mailto
-    ? <Link to={props.link}> {contents} </Link>
+    ? <Link className={'elementLine'} to={props.link}> {contents} </Link>
     : <a className={'elementLine'} href={props.link} target={(props.newTab) ? "_blank" : ""} rel="noreferrer">  {contents} </a>
 }
 
