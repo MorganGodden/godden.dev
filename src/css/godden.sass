@@ -1,271 +1,304 @@
-$col_text: #f3f3f3;
-$col_textGray: #e1e1e1;
-$col_textGrayest: #d3d3d3;
-$col_accent: #CC8BFF;
-$col_accentOpaque: #cd8bff50;
-$col_background: #070707;
+@import "../font-awesome/css/font-awesome.min.css"
+    
+$col_text: #f1f1f1
+$col_textGray: #dfdfdf
+$col_textGrayest: #d3d3d3
+$col_accent: #CC8BFF
+$col_accentOpaque: #cd8bff50
+$col_background: #070707
 
 @font-face 
-    font-family: "Ubuntu";
-    src: url("../fonts/Ubuntu-R.ttf");
+    font-family: "Ubuntu"
+    src: url("../fonts/Ubuntu-R.ttf")
     
-body 
-    font-family: "Ubuntu";
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+body
+    font-family: "Ubuntu"
+    font-style: normal
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
 
-    margin: 0;
-    padding: 0;
-    color: $col_text;
-    text-align: center;
-    font-size: 165%;
-    background-color: $col_background;
-
-    overflow: hidden;
-    cursor: default;
-
-::selection 
-    background-color: $col_accentOpaque;
-    color: $col_text;
+    margin: 0
+    padding: 0
+    color: $col_text
+    text-align: center
+    font-size: 165%
+    background-color: $col_background
 
 
+    overflow: hidden
+    cursor: default
 
-#content 
-    opacity: 0;
-    width: 725px;
+::selection
+    background-color: $col_accentOpaque
+    color: $col_text
 
-    left: calc(50% - 375px);
+*
+    outline: none
+
+
+
+#content
+    opacity: 0
+    width: 725px
+
+    left: calc(50% - 375px)
 
 #mobileText
-    opacity: 1;
-    font-weight: bold;
+    opacity: 1
+    font-weight: bold
 
-    text-align: center;
+    text-align: center
 
-    width: 90%;
-    left: 5%;
-    font-size: calc(2.5vw + 2.5vh);
+    width: 90%
+    left: 5%
+    font-size: calc(2.5vw + 2.5vh)
 
 #content, #mobileText
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+    position: absolute
+    top: 50%
+    transform: translate(0, -50%)
 
 // Mobile
-@media only screen and (min-width: 850px) and (min-height: 600px) 
-    #content
-        opacity: 1;
-@media only screen and (min-width: 850px) and (min-height: 600px) 
-    #mobileText
-        opacity: 0;
-  
+@media only screen and (min-width: 850px) and (min-height: 600px)
+    #content 
+        opacity: 1
+    
+@media only screen and (min-width: 850px) and (min-height: 600px)
+    #mobileText 
+        opacity: 0
 
 
-#welcomeText
-    opacity: 50%;
-    font-weight: normal;
-    font-size: 120%;
-    margin-bottom: 5px;
 
-h1
-    font-size: 270%;
-    margin-bottom: 7px;
+#welcomeText 
+    opacity: 50%
+    font-weight: normal
+    font-size: 120%
+    margin-bottom: 5px
+
+h1 
+    font-size: 270%
+    margin-bottom: 7px
 
 h1, #mobileText
-    margin: 0;
-    color: $col_accent;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    margin: 0
+    color: $col_accent
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5)
 
-h2
-    margin-bottom: 12px;
+h2 
+    margin-bottom: 12px
 
-p
-    margin-block-start: 0;
-    margin-block-end: 0;
+p 
+    margin-block-start: 0
+    margin-block-end: 0
 
-.small
-    display: inline-block;
-    margin-left: 5px;
+.small 
+    display: inline-block
+    margin-left: 5px
     color: $col_textGrayest
-    font-size: 50%;
-    font-weight: bold;
-    text-decoration: none;
+    font-size: 50%
+    font-weight: bold
+    text-decoration: none
 
 #contentBacking
-    position: absolute;
+    position: absolute
 
-    top: 150px;
-    left: 0;
-    right: 0;
-    bottom: 25px;
+    top: 150px
+    left: 0
+    right: 0
+    bottom: 25px
     
-    filter: blur(15px);
-    background-color: rgba(10, 10, 10, 0.5);
-    z-index: -1;
+    filter: blur(15px)
+    background-color: rgba(10, 10, 10, 0.5)
+    z-index: -1
 
-.h3Div 
-    margin: 14px 39px 14px 39px;
-    display: flex;
-    text-align: left;
-    font-size: 110%;
+.h3Div
+    margin: 12px 39px 12px 39px
+    display: flex
+    text-align: left
+    font-size: 110%
     
-    h3
-        font-weight: normal;
-        width: 21%;
-        font-size: 100%;
+    h3 
+        font-weight: normal
+        width: 21%
+        font-size: 100%
+    
 
-    ul
-        margin: 0;
-        width: 70%;
-        padding-inline-start: 0;
-        list-style-type: none;
-        font-weight: bold;
-        letter-spacing: 0.04em;
-    .hash
-        line-height: 1.4;
-        width: 4%;
+    ul 
+        margin: 0
+        width: 70%
+        padding-inline-start: 0
+        list-style-type: none
+        font-weight: bold
+        letter-spacing: 0.04em
 
-    h3, .ElementLine
-        margin: 4px 0 4px 0;
+    .hash 
+        line-height: 1.4
+        width: 4%
 
+    .slash
+        color: $col_textGrayest
+        margin-left: 8px
+        margin-right: 15px
+        
+    
+
+    .elementLine
+        letter-spacing: 0.06em;
+
+    h3, .elementLine 
+        margin: 5px 0 5px 0
+    
     a
-        margin-right: 19px !important;
-        img
-            height: 25px;
-            width: 25px;
-            filter: invert(98%);
-            margin: 0;
-            padding: 0;
+        &:has(i)
+            text-decoration: none
+
+        margin-right: 16px !important
+        i
+            font-family: 'FontAwesome'
+            margin-right: 8px
             
-            margin-right: 7px;
-            transform: translateY(2px);
+            font-weight: normal
+            font-style: normal
+            height: 25px
+            width: 25px
+    
+.underline, a:has(i), .backBtn
+    display: inline-block
+    color: $col_text
 
-a
-    display: inline-block;
-    color: $col_text;
+.underline
+    text-decoration: underline solid 3px $col_accentOpaque
+    transition: text-decoration 0.25s
 
-    text-decoration: underline solid 3px $col_accentOpaque;
-    transition: text-decoration 0.25s;
-    &:hover
-        text-decoration: underline solid 3px $col_accent;
-        transition: text-decoration 0.25s;
+
+// Hover/Focus events
+.underline:hover,
+.underline:focus,
+a:hover > * > .underline, 
+a:focus > * > .underline
+    color: white
+    text-decoration: underline solid 3px $col_accent
+    transition: text-decoration 0.25s
+
 
 .accent
-    color: $col_accent;
+    color: $col_accent
 
 
-.tooltip
-    color:  $col_text;
-    transition: 200ms color;
+.tooltip 
+    color:  $col_text
+    transition: 200ms color
 
     span
-        transition: 200ms opacity;
+        transition: 200ms opacity
+
 
 .tooltip::before,
 .tooltip::after
-    --opacity: 0;
-    position: absolute;
-    opacity: var(--opacity);
-    transition: 200ms opacity;
+    --opacity: 0
+    position: absolute
+    opacity: var(--opacity)
+    transition: 200ms opacity
 
-.tooltip::before
-    content: attr(tooltip);
-    color: $col_accent;
-    font-size: 75%;
-    background: linear-gradient(90deg, #ffffff15 0%, transparent 100%);;
-    border-radius: 4px;
-    padding: .2em;
+.tooltip::before 
+    content: attr(tooltip)
+    color: $col_accent
+    font-size: 75%
+    background: linear-gradient(90deg, #ffffff15 0%, transparent 100%)
+    border-radius: 4px
+    padding: .2em
     
 
 .tooltip:hover
-    color:  transparent;
-    transition: 200ms color;
+    color:  transparent
+    transition: 200ms color
+
     &::before
-        --opacity: 1;
+        --opacity: 1
 
     span
-        opacity: 0;
-        transition: 100ms opacity;
+        opacity: 0
+        transition: 100ms opacity
+
 
 hr
-    height: 12px;
-    width: 100%;
-
+    height: 12px
+    width: 100%
     
 
-    margin: 0;
-    margin-top: 23px;
-    padding: 0;
+    margin: 0
+    margin-top: 23px
 
-    border: 3px solid;
-    border-top: none;
-    opacity: 75%;
+    border: 3px solid
+    border-top: none
+    opacity: 75%
 
-    transform: translateY(-12px);
+    transform: translateY(-12px)
 
-.rotate180
-    transform: translateY(14px) rotateX(180deg);
-    margin-top: 0;
-    margin-bottom: 23px;
+.rotate180 
+    transform: translateY(14px) rotateX(180deg)
+    margin-top: 0
+    margin-bottom: 23px
 
-#backBtn
-    position: absolute;
-    left: 0;
-    transform: translateX(85px) translateY(8px);
-    text-decoration: none;
-    transition: 150ms color; 
-    &:hover
-        color: $col_accent;
-        transition: 150ms color; 
+
+    
+.backBtn
+    position: absolute
+    left: 0
+    transform: translateX(85px) translateY(8px)
+    text-decoration: none
+    transition: 150ms color
+    &:hover, &:focus
+        color: $col_accent
+        transition: 150ms color
+
 
 #background
-    height: 100%;
-    width: 100%;
-    left: 0;
+    height: 100%
+    width: 100%
+    left: 0
 
-    object-fit: cover;
-    pointer-events: none;
+    object-fit: cover
+    pointer-events: none
 
-    position: absolute;
+    position: absolute
 
-    opacity: 15% !important;
-    filter: blur(15px);
+    opacity: 15% !important
+    filter: blur(17.5px) contrast(0.9)
 
-#webPreview
-    height: 167px;
-    width: 552px;
-    margin-bottom: 20px;
+.webPreview
+    height: 167px
+    width: 552px
+    margin-bottom: 20px
 
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto
+    margin-right: auto
 
-    background-color: #222222;
-    border: solid 1px #363636;
+    background-color: #222222
+    border: solid 1px #363636
 
-    text-align: left;
+    text-align: left
 
     ul
-        vertical-align: top;
-        padding-inline-start: 0;
-        width: 350px;
-        display: inline-block;
+        vertical-align: top
+        padding-inline-start: 0
+        width: 360px
+        display: inline-block
         a
-            font-weight: bold;
-            margin-bottom: 5px;
-            width: 350px;
-            font-size: 110%;
+            font-weight: bold
+            margin-bottom: 5px
+            width: 360px
+            font-size: 110%
         
         p
-            color: $col_textGrayest;
-            margin-top: 5px;
-            width: 350px;
-            font-size: 60%;
+            color: $col_textGrayest
+            margin-top: 5px
+            width: 360px
+            font-size: 60%
             b
-                color: $col_textGray;
+                color: $col_textGray
 
     img
-        height: calc(100% - 40px);
-        width: auto;
-        margin: 20px;
-        margin-left: 25px;
+        height: calc(100% - 36px)
+        width: auto
+        margin: 18px

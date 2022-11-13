@@ -1,3 +1,4 @@
+@import url(g:\Github\goddendev\src\font-awesome\css\font-awesome.min.css);
 @font-face {
   font-family: "Ubuntu";
   src: url("../fonts/Ubuntu-R.ttf");
@@ -10,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  color: #f3f3f3;
+  color: #f1f1f1;
   text-align: center;
   font-size: 165%;
   background-color: #070707;
@@ -20,12 +21,16 @@ body {
 
 ::-moz-selection {
   background-color: #cd8bff50;
-  color: #f3f3f3;
+  color: #f1f1f1;
 }
 
 ::selection {
   background-color: #cd8bff50;
-  color: #f3f3f3;
+  color: #f1f1f1;
+}
+
+* {
+  outline: none;
 }
 
 #content {
@@ -113,7 +118,7 @@ p {
 }
 
 .h3Div {
-  margin: 14px 39px 14px 39px;
+  margin: 12px 39px 12px 39px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,29 +147,43 @@ p {
   width: 4%;
 }
 
-.h3Div h3, .h3Div .ElementLine {
-  margin: 4px 0 4px 0;
+.h3Div .slash {
+  color: #d3d3d3;
+  margin-left: 8px;
+  margin-right: 15px;
+}
+
+.h3Div .elementLine {
+  letter-spacing: 0.06em;
+}
+
+.h3Div h3, .h3Div .elementLine {
+  margin: 5px 0 5px 0;
 }
 
 .h3Div a {
-  margin-right: 19px !important;
+  margin-right: 16px !important;
 }
 
-.h3Div a img {
+.h3Div a:has(i) {
+  text-decoration: none;
+}
+
+.h3Div a i {
+  font-family: 'FontAwesome';
+  margin-right: 8px;
+  font-weight: normal;
+  font-style: normal;
   height: 25px;
   width: 25px;
-  -webkit-filter: invert(98%);
-          filter: invert(98%);
-  margin: 0;
-  padding: 0;
-  margin-right: 7px;
-  -webkit-transform: translateY(2px);
-          transform: translateY(2px);
 }
 
-a {
+.underline, a:has(i), .backBtn {
   display: inline-block;
-  color: #f3f3f3;
+  color: #f1f1f1;
+}
+
+.underline {
   -webkit-text-decoration: underline solid 3px #cd8bff50;
           text-decoration: underline solid 3px #cd8bff50;
   -webkit-transition: -webkit-text-decoration 0.25s;
@@ -173,7 +192,11 @@ a {
   transition: text-decoration 0.25s, -webkit-text-decoration 0.25s;
 }
 
-a:hover {
+.underline:hover,
+.underline:focus,
+a:hover > * > .underline,
+a:focus > * > .underline {
+  color: white;
   -webkit-text-decoration: underline solid 3px #CC8BFF;
           text-decoration: underline solid 3px #CC8BFF;
   -webkit-transition: -webkit-text-decoration 0.25s;
@@ -187,7 +210,7 @@ a:hover {
 }
 
 .tooltip {
-  color: #f3f3f3;
+  color: #f1f1f1;
   -webkit-transition: 200ms color;
   transition: 200ms color;
 }
@@ -237,7 +260,6 @@ hr {
   width: 100%;
   margin: 0;
   margin-top: 23px;
-  padding: 0;
   border: 3px solid;
   border-top: none;
   opacity: 75%;
@@ -252,7 +274,7 @@ hr {
   margin-bottom: 23px;
 }
 
-#backBtn {
+.backBtn {
   position: absolute;
   left: 0;
   -webkit-transform: translateX(85px) translateY(8px);
@@ -262,7 +284,7 @@ hr {
   transition: 150ms color;
 }
 
-#backBtn:hover {
+.backBtn:hover, .backBtn:focus {
   color: #CC8BFF;
   -webkit-transition: 150ms color;
   transition: 150ms color;
@@ -277,11 +299,11 @@ hr {
   pointer-events: none;
   position: absolute;
   opacity: 15% !important;
-  -webkit-filter: blur(15px);
-          filter: blur(15px);
+  -webkit-filter: blur(17.5px) contrast(0.9);
+          filter: blur(17.5px) contrast(0.9);
 }
 
-#webPreview {
+.webPreview {
   height: 167px;
   width: 552px;
   margin-bottom: 20px;
@@ -292,36 +314,35 @@ hr {
   text-align: left;
 }
 
-#webPreview ul {
+.webPreview ul {
   vertical-align: top;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
-  width: 350px;
+  width: 360px;
   display: inline-block;
 }
 
-#webPreview ul a {
+.webPreview ul a {
   font-weight: bold;
   margin-bottom: 5px;
-  width: 350px;
+  width: 360px;
   font-size: 110%;
 }
 
-#webPreview ul p {
+.webPreview ul p {
   color: #d3d3d3;
   margin-top: 5px;
-  width: 350px;
+  width: 360px;
   font-size: 60%;
 }
 
-#webPreview ul p b {
-  color: #e1e1e1;
+.webPreview ul p b {
+  color: #dfdfdf;
 }
 
-#webPreview img {
-  height: calc(100% - 40px);
+.webPreview img {
+  height: calc(100% - 36px);
   width: auto;
-  margin: 20px;
-  margin-left: 25px;
+  margin: 18px;
 }
 /*# sourceMappingURL=godden.css.map */

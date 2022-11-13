@@ -1,7 +1,6 @@
 {
   "name": "goddendev",
-  "version": "2.0",
-  "private": true,
+  "version": "2.1",
   "homepage": "https://godden.dev/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -11,7 +10,7 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
