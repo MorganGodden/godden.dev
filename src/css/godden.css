@@ -29,6 +29,7 @@ body {
 }
 
 * {
+  color: #f1f1f1;
   outline: none;
 }
 
@@ -117,7 +118,7 @@ p {
 }
 
 .h3Div {
-  margin: 12px 39px 12px 39px;
+  margin: 12px 35px 12px 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,6 +163,7 @@ p {
 }
 
 .h3Div a {
+  text-decoration: none;
   margin-right: 16px !important;
 }
 
@@ -172,6 +174,7 @@ p {
 .h3Div a i {
   font-family: 'FontAwesome';
   margin-right: 8px;
+  text-decoration: none !important;
   font-weight: normal;
   font-style: normal;
   height: 25px;
@@ -318,7 +321,6 @@ hr {
   vertical-align: top;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
-  width: 360px;
   display: inline-block;
 }
 
