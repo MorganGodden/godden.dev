@@ -6,7 +6,7 @@ import Footer from '../footer';
 // Link Variables
 var github = 'https://github.com/MorganGodden';
 var github_website = 'https://github.com/MorganGodden/godden.dev';
-var notion_cv = 'https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiRUM3ZmZzanlIZ3FxSXlGZWF5d1hJWWY4NFRnbkNCOGtFQmlFL1N0K1ZDNUxpYjJuYm1sc1NxcG5wUllEOHdCY3VmS2RBMVhGZE1KSDhQYVVDWlpiOFp2WGdkU2lpS21veHpXVHRBUVNsMFZRMU10QmswZ2dyT3o5V1h4d2oyOXVWQVRYS3c9PSIsImgiOiJQYXNzd29yZCBwcm92aWRlZCBieSBNb3JnYW4uIiwicyI6IkRRTlc0Y2d1aVNySnRyYk1OSmVrQUE9PSIsImkiOiJCM2JQWVFNQStCQ1VlWWdVIn0=';
+var resume_pdf = 'https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiSWp1WjZERGJyT0hOZ2VxNUJmNXRWYUI0N2xabmNKRGlFSkNhWE81NWpBS1BwVHlTWEJPK0lxVXJXcDBtM1hUR21qdGFCZUptWHhmYS9qSGF3NEgrS1U4NzNHazVQS0ZOTkE9PSIsImgiOiJQYXNzd29yZCBwcm92aWRlZCBieSBNb3JnYW4uIiwicyI6ImwxS3hrcGIwQ1hvK2JTZTFuSS9iL0E9PSIsImkiOiIxYk1PNng5a3JMd1I3ZWlVIn0=';
 var linkedIn = 'https://www.linkedin.com/in/morgan-godden/';
 var mail = 'mailto:morgan.godden@outlook.com';
 
@@ -21,7 +21,7 @@ export default function Home() {
 					<div id='contentBacking' />
 					<ContentElement title='Position' lines={[<TextLine text='Software Engineer' />]} />
 					<ContentElement title='Details' lines={[
-							<LinkLine text='Resumé' link={notion_cv} newTab={true} smallText={'Notion'} />,
+							<LinkLine text='Resumé' link={resume_pdf} newTab={true} smallText={'PDF'} />,
 						]}
 					/>
 					<ContentElement title='Projects' lines={[
