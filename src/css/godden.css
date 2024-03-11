@@ -2,7 +2,6 @@
   font-family: "Ubuntu";
   src: url("../fonts/Ubuntu-R.ttf");
 }
-
 body {
   font-family: "Ubuntu";
   font-style: normal;
@@ -19,12 +18,12 @@ body {
 }
 
 ::-moz-selection {
-  background-color: #cd8bff50;
+  background-color: rgba(205, 139, 255, 0.3137254902);
   color: #f1f1f1;
 }
 
 ::selection {
-  background-color: #cd8bff50;
+  background-color: rgba(205, 139, 255, 0.3137254902);
   color: #f1f1f1;
 }
 
@@ -35,7 +34,7 @@ body {
 
 #content {
   opacity: 0;
-  width: 725px;
+  width: 750px;
   left: calc(50% - 375px);
 }
 
@@ -51,8 +50,7 @@ body {
 #content, #mobileText {
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 @media only screen and (min-width: 850px) and (min-height: 600px) {
@@ -60,13 +58,11 @@ body {
     opacity: 1;
   }
 }
-
 @media only screen and (min-width: 850px) and (min-height: 600px) {
   #mobileText {
     opacity: 0;
   }
 }
-
 #welcomeText {
   opacity: 50%;
   font-weight: normal;
@@ -90,10 +86,8 @@ h2 {
 }
 
 p {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .small {
@@ -111,62 +105,50 @@ p {
   left: 0;
   right: 0;
   bottom: 25px;
-  -webkit-filter: blur(15px);
-          filter: blur(15px);
+  filter: blur(15px);
   background-color: rgba(10, 10, 10, 0.5);
   z-index: -1;
 }
 
 .h3Div {
-  margin: 12px 35px 12px 35px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin: 16px 35px 16px 35px;
   display: flex;
   text-align: left;
   font-size: 110%;
 }
-
 .h3Div h3 {
   font-weight: normal;
   width: 21%;
   font-size: 100%;
 }
-
 .h3Div ul {
   margin: 0;
   width: 70%;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-inline-start: 0;
   list-style-type: none;
   font-weight: bold;
   letter-spacing: 0.04em;
 }
-
 .h3Div .hash {
   line-height: 1.4;
   width: 4%;
   margin-top: -2px;
 }
-
 .h3Div .elementLine {
   letter-spacing: 0.06em;
 }
-
 .h3Div h3, .h3Div .elementLine, .h3Div .underline {
   margin: 2px 0 2px 0;
 }
-
 .h3Div a {
   text-decoration: none;
   margin-right: 16px !important;
 }
-
 .h3Div a:has(i) {
   text-decoration: none;
 }
-
 .h3Div a i {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   margin-right: 8px;
   text-decoration: none !important;
   font-weight: normal;
@@ -180,9 +162,8 @@ p {
 }
 
 .underline {
-  -webkit-text-decoration: underline solid 3px #cd8bff50;
-          text-decoration: underline solid 3px #cd8bff50;
-  -webkit-transition: -webkit-text-decoration 0.25s;
+  -webkit-text-decoration: underline solid 3px rgba(205, 139, 255, 0.3137254902);
+          text-decoration: underline solid 3px rgba(205, 139, 255, 0.3137254902);
   transition: -webkit-text-decoration 0.25s;
   transition: text-decoration 0.25s;
   transition: text-decoration 0.25s, -webkit-text-decoration 0.25s;
@@ -195,7 +176,6 @@ a:focus > * > .underline {
   color: white;
   -webkit-text-decoration: underline solid 3px #CC8BFF;
           text-decoration: underline solid 3px #CC8BFF;
-  -webkit-transition: -webkit-text-decoration 0.25s;
   transition: -webkit-text-decoration 0.25s;
   transition: text-decoration 0.25s;
   transition: text-decoration 0.25s, -webkit-text-decoration 0.25s;
@@ -206,12 +186,9 @@ a:focus > * > .underline {
 }
 
 .tooltip {
-  -webkit-transition: 200ms color;
   transition: 200ms color;
 }
-
 .tooltip span {
-  -webkit-transition: 200ms opacity;
   transition: 200ms opacity;
 }
 
@@ -220,7 +197,6 @@ a:focus > * > .underline {
   --opacity: 0;
   position: absolute;
   opacity: var(--opacity);
-  -webkit-transition: 200ms opacity;
   transition: 200ms opacity;
 }
 
@@ -228,25 +204,20 @@ a:focus > * > .underline {
   content: attr(tooltip);
   color: #CC8BFF;
   font-size: 75%;
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff15), to(transparent));
-  background: linear-gradient(90deg, #ffffff15 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.0823529412) 0%, transparent 100%);
   border-radius: 4px;
-  padding: .2em;
+  padding: 0.2em;
 }
 
 .tooltip:hover {
   color: transparent;
-  -webkit-transition: 200ms color;
   transition: 200ms color;
 }
-
 .tooltip:hover::before {
   --opacity: 1;
 }
-
 .tooltip:hover span {
   opacity: 0;
-  -webkit-transition: 100ms opacity;
   transition: 100ms opacity;
 }
 
@@ -258,13 +229,11 @@ hr {
   border: 3px solid;
   border-top: none;
   opacity: 75%;
-  -webkit-transform: translateY(-12px);
-          transform: translateY(-12px);
+  transform: translateY(-12px);
 }
 
 .rotate180 {
-  -webkit-transform: translateY(14px) rotateX(180deg);
-          transform: translateY(14px) rotateX(180deg);
+  transform: translateY(14px) rotateX(180deg);
   margin-top: 0;
   margin-bottom: 23px;
 }
@@ -272,16 +241,12 @@ hr {
 .backBtn {
   position: absolute;
   left: 0;
-  -webkit-transform: translateX(85px) translateY(8px);
-          transform: translateX(85px) translateY(8px);
+  transform: translateX(85px) translateY(8px);
   text-decoration: none;
-  -webkit-transition: 150ms color;
   transition: 150ms color;
 }
-
 .backBtn:hover, .backBtn:focus {
   color: #CC8BFF;
-  -webkit-transition: 150ms color;
   transition: 150ms color;
 }
 
@@ -294,8 +259,7 @@ hr {
   pointer-events: none;
   position: absolute;
   opacity: 15% !important;
-  -webkit-filter: blur(17.5px) contrast(0.9);
-          filter: blur(17.5px) contrast(0.9);
+  filter: blur(17.5px) contrast(0.9);
 }
 
 .webPreview {
@@ -308,35 +272,28 @@ hr {
   border: solid 1px #363636;
   text-align: left;
 }
-
 .webPreview ul {
   vertical-align: top;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-inline-start: 0;
   display: inline-block;
 }
-
 .webPreview ul a {
   font-weight: bold;
   margin-bottom: 5px;
   width: 360px;
   font-size: 110%;
 }
-
 .webPreview ul p {
   color: #d3d3d3;
   margin-top: 5px;
   width: 360px;
   font-size: 60%;
 }
-
 .webPreview ul p b {
   color: #dfdfdf;
 }
-
 .webPreview img {
   height: calc(100% - 36px);
   width: auto;
   margin: 18px;
-}
-/*# sourceMappingURL=godden.css.map */
+}/*# sourceMappingURL=godden.css.map */

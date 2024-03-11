@@ -4,7 +4,6 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import Home from './javascript/pages/home.js';
-import Projects from './javascript/pages/projects.js';
 import NotFound from './javascript/pages/notfound.js';
 
 export default function App() {
@@ -13,8 +12,7 @@ export default function App() {
 			<HashRouter basename='/'>
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/projects' element={<Projects />} />
-					<Route path='*' element={<NotFound />} />
+					<Route path='/*' element={<NotFound />} />
 				</Routes>
 			</HashRouter>
 		</React.StrictMode>
