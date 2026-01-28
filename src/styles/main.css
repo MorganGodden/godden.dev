@@ -1,2 +1,28 @@
-@import "tailwindcss";
-@import "tailwindcss-primeui";
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+
+body {
+  background: black;
+  overflow: hidden;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+}
+button {
+  pointer-events: all;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@font-face {
+  font-family: 'JBlack';
+  src:
+    local('JBlack'),
+    url('/fonts/JBLACK.TTF') format('truetype');
+  font-weight: 900;
+}

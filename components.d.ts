@@ -11,8 +11,18 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BlurText: typeof import('./src/components/BlurText/BlurText.vue')['default']
     Button: typeof import('primevue/button')['default']
+    ClickSpark: typeof import('./src/components/ClickSpark/ClickSpark.vue')['default']
+    Dither: typeof import('./src/components/Dither/Dither.vue')['default']
+    GButton: typeof import('./src/components/GButton.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
+    RollingGallery: typeof import('./src/components/RollingGallery/RollingGallery.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrambleText: typeof import('./src/components/ScrambleText/ScrambleText.vue')['default']
+  }
+  export interface GlobalDirectives {
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }
