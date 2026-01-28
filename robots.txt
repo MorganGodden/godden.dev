@@ -1,3 +1,13 @@
-# https://www.robotstxt.org/robotstxt.html
+# SEO Robots Configuration
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /.env
+Disallow: /.git
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://godden.dev/sitemap.xml
