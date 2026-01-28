@@ -96,7 +96,7 @@ const socialLinks = [
 }
 @keyframes fadeIn {
   to {
-    opacity: 0.25;
+    opacity: 0.5;
   }
 }
 </style>

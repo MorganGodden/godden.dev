@@ -19,7 +19,8 @@ app.use(PrimeVue, {
   theme: {
     preset: Lara,
     options: {
-      dark: false,
+      dark: true,
+      darkModeSelector: 'dark',
     },
   },
   ripple: true,
