@@ -21,6 +21,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrambleText: typeof import('./src/components/ScrambleText/ScrambleText.vue')['default']
+    ShowcaseItem: typeof import('./src/components/ShowcaseItem.vue')['default']
   }
   export interface GlobalDirectives {
     Tooltip: typeof import('primevue/tooltip')['default']

@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
-import PrimeVue from 'primevue/config'
+import PrimeVue, { type PrimeVueConfiguration } from 'primevue/config'
 import Lara from '@primeuix/themes/lara'
 
 import App from './App.vue'
@@ -20,11 +20,11 @@ app.use(PrimeVue, {
     preset: Lara,
     options: {
       dark: true,
-      darkModeSelector: 'dark',
+      darkModeSelector: '.dark',
     },
   },
   ripple: true,
-})
+} as PrimeVueConfiguration)
 
 // Setup SEO meta tags and dynamic updates
 setupSEO(app, router)

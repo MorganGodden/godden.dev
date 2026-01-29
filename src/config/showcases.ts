@@ -7,7 +7,7 @@ import type { Showcase } from '@/types/index'
 export const showcases: Showcase[] = [
   {
     icon: 'icon-park-solid:poker',
-    title: 'Planning Poker Application',
+    title: 'Planning Poker Tool',
     description: `A web application designed to facilitate agile sprint planning using the Planning
                 Poker technique. Built with Nuxt.js and Nitro websockets, this app
                 offers real-time collaboration, Jira integration, and a unique parallax UI to add whimsy to

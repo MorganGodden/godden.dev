@@ -3,6 +3,7 @@ import '@/styles/main.css'
 import 'primeicons/primeicons.css'
 
 import { ref } from 'vue'
+import { useResponsive } from '@/composables/useResponsive'
 
 // Components
 import Dither from './components/Dither/Dither.vue'
@@ -15,11 +16,16 @@ import Header from './components/Header.vue'
 // Configuration
 import { showcases } from '@/config/showcases'
 import { siteConfig } from './config/seo'
+import { Carousel, Paginator } from 'primevue'
+import ShowcaseItem from './components/ShowcaseItem.vue'
+import type { Showcase } from './types'
 
 /**
  * Controls when the header animation is complete
  */
 const headerLoaded = ref<boolean>(false)
+
+const { isScreenSizeSm } = useResponsive()
 
 /**
  * Social media and contact links
@@ -71,7 +77,29 @@ const socialLinks = [
             <span>Full-Stack Software Engineer • Web Enthusiast</span>
           </ScrambleText>
           <div class="w-full flex items-center justify-center h-fit pointer-events-none">
-            <RollingGallery :autoplay="false" :pause-on-hover="true" :showcases="showcases" />
+            <Carousel
+              v-if="isScreenSizeSm"
+              :value="showcases"
+              :num-visible="1"
+              :wrap-around="true"
+              :mouse-drag="true"
+              :pt="{
+                root: 'w-full max-w-xl mt-4',
+                indicator: 'rounded-full! overflow-hidden',
+                pcNextButton: 'bg-red-500! text-xl!',
+                pcPrevButton: 'bg-red-500! text-xl!',
+              }"
+            >
+              <template #item="{ data }: { data: Showcase }">
+                <ShowcaseItem :showcase="data" class="mx-4" />
+              </template>
+            </Carousel>
+            <RollingGallery
+              v-else
+              :autoplay="false"
+              :pause-on-hover="true"
+              :showcases="showcases"
+            />
           </div>
           <div class="flex gap-2">
             <GButton
