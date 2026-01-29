@@ -201,14 +201,14 @@ watch(
     <!-- Navigation Buttons -->
     <button
       @click="rotateLeft"
-      class="absolute left-[22.5%] top-1/2 -translate-y-1/2 z-20 rounded-full p-3 transition-all duration-200 hover:bg-white/20 hover:scale-105 active:scale-95"
+      class="arrow-button left-[22.5%] pr-4!"
       aria-label="Previous showcase"
     >
       <Icon icon="fa:chevron-left" class="text-4xl opacity-50" />
     </button>
     <button
       @click="rotateRight"
-      class="absolute right-[22.5%] top-1/2 -translate-y-1/2 z-20 rounded-full p-3 transition-all duration-200 hover:bg-white/20 hover:scale-105 active:scale-95"
+      class="arrow-button right-[22.5%] pl-4!"
       aria-label="Next showcase"
     >
       <Icon icon="fa:chevron-right" class="text-4xl opacity-50" />
@@ -245,7 +245,7 @@ watch(
 .blur-gradient {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  mask-image: linear-gradient(to right, transparent 30%, black 45%, black 55%, transparent 70%);
+  mask-image: linear-gradient(to right, transparent 25%, black 32%, black 68%, transparent 75%);
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 25%,
@@ -253,5 +253,29 @@ watch(
     black 68%,
     transparent 75%
   );
+}
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem;
+  transition: all 200ms;
+}
+
+.arrow-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.arrow-button:active {
+  transform: translateY(-50%) scale(0.95);
 }
 </style>

@@ -60,7 +60,7 @@ const socialLinks = [
     >
       <div
         v-auto-animate
-        class="flex flex-col w-full p-8 py-16 justify-center items-center pointer-events-none"
+        class="flex flex-col w-full justify-center items-center pointer-events-none px-2 py-16 sm:px-8"
       >
         <Header @loaded="headerLoaded = true" />
         <div

@@ -27,7 +27,9 @@ const props = defineProps<ShowcaseItemProps>()
         <p class="text-pretty leading-snug text-[0.7rem]">
           {{ showcase.description }}
         </p>
-        <div class="flex gap-1 items-center justify-between mt-auto">
+        <div
+          class="flex gap-2 justify-between mt-auto items-start flex-col xs:items-center xs:flex-row"
+        >
           <div class="flex gap-1 items-center text-white/70">
             <Icon
               v-for="(icon, name) in showcase.techIcons"
@@ -46,7 +48,10 @@ const props = defineProps<ShowcaseItemProps>()
             icon="pi pi-arrow-right"
             text
             plain
-            pt:root="h-8! bg-white/5! hover:bg-white/10! transition-all duration-200 pointer-events-auto"
+            :pt:root="[
+              'h-8! bg-white/5! transition-all duration-200 pointer-events-auto w-full xs:w-fit',
+              showcase.disabled ? 'cursor-not-allowed!' : 'hover:bg-white/10! active:scale-95!',
+            ]"
             :disabled="showcase.disabled"
             @click="() => openUrl(showcase.link)"
           />

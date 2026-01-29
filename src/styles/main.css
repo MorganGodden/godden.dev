@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import 'tailwindcss-primeui';
 
+@theme {
+  --breakpoint-xs: 30rem; /* 480px */
+}
+
 body {
   background: black;
   overflow: hidden;
