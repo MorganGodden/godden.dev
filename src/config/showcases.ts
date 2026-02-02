@@ -37,10 +37,9 @@ export const showcases: Showcase[] = [
   },
   {
     icon: 'material-symbols:leaderboard-rounded',
-    title: 'Minecraft Leaderboard',
-    description: `A web application that tracks and displays player statistics and rankings for custom Minecraft
-                servers. Built with Vue.js, this app integrates with a Java RESTful API to provide real-time updates, 
-                user profiles, and leaderboards to enhance the gaming experience for this Minecraft community.`,
+    title: 'Web Leaderboard',
+    description: `A web application that tracks and displays player statistics and rankings for a video-game community. Built with Vue.js, this app integrates with a Java RESTful API to provide real-time updates, 
+                user profiles, and leaderboards to enhance the gaming experience for this community.`,
     link: 'https://sl.godden.dev',
     techIcons: {
       'Tailwind CSS': 'mdi:tailwind',
@@ -48,6 +47,5 @@ export const showcases: Showcase[] = [
       'Vue.js': 'mdi:vuejs',
       'RESTful API': 'carbon:api-1',
     },
-    disabled: true,
   },
 ]
