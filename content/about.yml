@@ -19,6 +19,6 @@ content: |
   Thanks for stopping by. Feel free to explore my [projects](/projects) or [get in touch](mailto:morgan.godden@outlook.com) if you’d like to collaborate.
 images:
   - src: https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3
-    alt: Modern code workspace with developer tools
+    alt:
   - src: https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3
-    alt: Game development sketch and prototyping setup
+    alt:

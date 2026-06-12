@@ -71,6 +71,7 @@ defineOgImage('Portfolio', { title, description })
           :title="project.title"
           :description="project.description"
           :to="project.url"
+          target="_blank"
           orientation="horizontal"
           variant="naked"
           :reverse="index % 2 === 1"
@@ -87,6 +88,7 @@ defineOgImage('Portfolio', { title, description })
           <template #footer>
             <ULink
               :to="project.url"
+              target="_blank"
               class="text-sm text-primary flex items-center"
             >
               View Project

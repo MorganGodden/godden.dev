@@ -44,6 +44,5 @@ defineOgImage('Portfolio', { title, description })
       <LandingAbout :page />
       <LandingWorkExperience :page />
     </UPageSection>
-    <LandingFAQ :page />
   </UPage>
 </template>
