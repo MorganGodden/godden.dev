@@ -1,0 +1,10 @@
+title: What's the Point
+description:
+  A web application designed to facilitate agile sprint planning using the Planning
+  Poker technique. Built with Nuxt.js and Nitro websockets, this app
+  offers real-time collaboration, Jira integration, and a unique parallax UI to add whimsy to
+  your estimation sessions.
+icon: i-lucide-spade
+url: "https://wtp.godden.dev/"
+tags: ["UI Design", "Front-End Dev"]
+year: 2025

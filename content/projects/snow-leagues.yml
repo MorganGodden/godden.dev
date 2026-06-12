@@ -1,0 +1,6 @@
+title: Snow Leagues
+description: A web application that tracks and displays player statistics and rankings for a video-game community. Built with Vue.js, this app integrates with a Java RESTful API to provide real-time updates, user profiles, and leaderboards to enhance the gaming experience for this community.
+icon: i-lucide-snowflake
+url: "https://sl.godden.dev/"
+tags: ["Web App", "Vue.js"]
+year: 2025
