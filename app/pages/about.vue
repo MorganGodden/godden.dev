@@ -1,28 +1,28 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('about', () => {
-  return queryCollection('about').first()
-})
+const { data: page } = await useAsyncData("about", () => {
+  return queryCollection("about").first();
+});
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
-    fatal: true
-  })
+    statusMessage: "Page not found",
+    fatal: true,
+  });
 }
 
-const { global } = useAppConfig()
+const { global } = useAppConfig();
 
-const title = page.value?.seo?.title || page.value?.title
-const description = page.value?.seo?.description || page.value?.description
+const title = page.value?.seo?.title || page.value?.title;
+const description = page.value?.seo?.description || page.value?.description;
 
 useSeoMeta({
   title,
   ogTitle: title,
   description,
-  ogDescription: description
-})
+  ogDescription: description,
+});
 
-defineOgImage('Portfolio', { title, description })
+defineOgImage("Portfolio", { title, description });
 </script>
 
 <template>
@@ -35,7 +35,7 @@ defineOgImage('Portfolio', { title, description })
         container: 'lg:flex sm:flex-row items-center',
         title: 'mx-0! text-left',
         description: 'mx-0! text-left',
-        links: 'justify-start'
+        links: 'justify-start',
       }"
     >
       <UColorModeAvatar
@@ -47,21 +47,18 @@ defineOgImage('Portfolio', { title, description })
     </UPageHero>
     <UPageSection
       :ui="{
-        container: 'pt-0!'
+        container: 'pt-0!',
       }"
     >
-      <MDC
-        :value="page.content"
-        unwrap="p"
-      />
-      <div class="flex flex-row justify-center items-center py-10 -space-x-8">
+      <MDC :value="page.content" unwrap="p" />
+      <!-- <div class="flex flex-row justify-center items-center py-10 -space-x-8">
         <PolaroidItem
           v-for="(image, index) in page.images"
           :key="index"
           :image="image"
           :index
         />
-      </div>
+      </div> -->
     </UPageSection>
   </UPage>
 </template>
