@@ -1,0 +1,10 @@
+title: Lobby Assets
+description:
+  A web application that generates broadcast-quality social media graphics for CS2
+  esports teams in a single click. Teams set up their identity once, then auto-populate
+  match details to export matchday announcements, lineup cards, and versus graphics
+  across multiple formats for X, Instagram, Facebook, and TikTok.
+icon: i-lucide-images
+url: "https://lobbyassets.com/"
+tags: ["Web App", "Nuxt.js", "Cloudflare R2"]
+year: 2026

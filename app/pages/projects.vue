@@ -13,7 +13,7 @@ if (!page.value) {
 const { data: projects } = await useAsyncData('projects', () => {
   return queryCollection('projects').all()
 })
-projects.value = projects.value?.sort((a, b) => a.year - b.year)
+projects.value = projects.value?.sort((a, b) => b.year - a.year)
 
 const { global } = useAppConfig()
 
