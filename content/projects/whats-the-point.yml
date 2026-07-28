@@ -7,6 +7,7 @@ description:
 icon: i-lucide-spade
 image: /projects/whats-the-point-light.png
 imageDark: /projects/whats-the-point-dark.png
+imageAnchor: left
 url: "https://wtp.godden.dev/"
 tags: ["UI Design", "Front-End Dev"]
 year: 2025

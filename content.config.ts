@@ -1,4 +1,5 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+import { projectImageAnchors } from './app/utils/projectImage'
 
 const createBaseSchema = () =>
   z.object({
@@ -58,6 +59,7 @@ export default defineContentConfig({
         description: z.string().nonempty(),
         image: z.string().editor({ input: 'media' }).optional(),
         imageDark: z.string().editor({ input: 'media' }).optional(),
+        imageAnchor: z.enum(projectImageAnchors).optional(),
         url: z.string().nonempty(),
         tags: z.array(z.string()),
         year: z.number()

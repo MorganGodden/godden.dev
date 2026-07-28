@@ -164,6 +164,8 @@ defineProps<{
             width="234"
             height="234"
             class="aspect-square object-cover transition-all duration-300 ease-out group-hover:blur-[2px]"
+            :class="projectImageAnchorClass(project.imageAnchor)"
+            :modifiers="projectImageAnchorModifiers(project.imageAnchor)"
             :light="project.image!"
             :dark="project.imageDark || project.image!"
             :alt="project.title"
