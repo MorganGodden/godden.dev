@@ -160,11 +160,12 @@ defineProps<{
           class="group relative block overflow-hidden rounded-lg ring-1 ring-default shadow-md"
           :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
         >
-          <NuxtImg
+          <UColorModeImage
             width="234"
             height="234"
             class="aspect-square object-cover transition-all duration-300 ease-out group-hover:blur-[2px]"
-            :src="project.image"
+            :light="project.image!"
+            :dark="project.imageDark || project.image!"
             :alt="project.title"
           />
           <span

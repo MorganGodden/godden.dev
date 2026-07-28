@@ -5,6 +5,8 @@ description:
   offers real-time collaboration, Jira integration, and a unique parallax UI to add whimsy to
   your estimation sessions.
 icon: i-lucide-spade
+image: /projects/whats-the-point-light.png
+imageDark: /projects/whats-the-point-dark.png
 url: "https://wtp.godden.dev/"
 tags: ["UI Design", "Front-End Dev"]
 year: 2025

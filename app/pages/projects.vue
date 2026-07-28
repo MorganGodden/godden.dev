@@ -102,11 +102,12 @@ defineOgImage('Portfolio', { title, description })
             v-if="project.image"
             class="relative overflow-hidden rounded-xl ring-1 ring-default shadow-lg"
           >
-            <img
-              :src="project.image"
+            <UColorModeImage
+              :light="project.image!"
+              :dark="project.imageDark || project.image!"
               :alt="project.title"
               class="object-cover w-full h-48 transition-all duration-300 ease-out group-hover:blur-[2px]"
-            >
+            />
             <div
               class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             >
