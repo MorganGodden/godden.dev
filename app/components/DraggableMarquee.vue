@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<{
 const DRAG_THRESHOLD = 4
 
 /** How long the drift waits out the visitor's own scrolling, in milliseconds. */
-const RESUME_DELAY = 2000
+const RESUME_DELAY = 1200
 
 const viewport = ref<HTMLElement | null>(null)
 
@@ -63,6 +63,8 @@ const dragging = ref(false)
 const focusWithin = ref(false)
 const onScreen = ref(true)
 const reducedMotion = ref(false)
+/** Whether this is a device that can hover at all. See `drifting`. */
+const canHover = ref(false)
 /** When the visitor last scrolled; long ago, until they have. */
 let scrolledAt = Number.NEGATIVE_INFINITY
 
@@ -71,8 +73,21 @@ function drifting(now: number) {
     && !reducedMotion.value
     && !dragging.value
     && !focusWithin.value
-    && !(props.pauseOnHover && resting.value)
+    // A finger cannot rest on anything, so on a phone this hold is not merely
+    // useless but dangerous: it is the one thing here with no reliable event to
+    // lift it again. `pointerleave` after a touch is not sent by every browser,
+    // and a hold nothing lifts stops the strip for the rest of the visit.
+    && !(props.pauseOnHover && canHover.value && resting.value)
     && now - scrolledAt > RESUME_DELAY
+}
+
+/** Where we last put the strip, to tell our own scrolling from the visitor's. */
+let placed = Number.NaN
+
+/** Move the strip, and remember having done it. */
+function place(el: HTMLElement, position: number) {
+  el.scrollLeft = position
+  placed = el.scrollLeft
 }
 
 /**
@@ -89,8 +104,8 @@ function normalize() {
   // different, and the browser would scroll back to it.
   if (focusWithin.value) return
 
-  if (el.scrollLeft >= period * 2) el.scrollLeft -= period
-  else if (el.scrollLeft < period) el.scrollLeft += period
+  if (el.scrollLeft >= period * 2) place(el, el.scrollLeft - period)
+  else if (el.scrollLeft < period) place(el, el.scrollLeft + period)
 }
 
 /**
@@ -143,6 +158,11 @@ let travelled = 0
 let dragged = false
 
 function onPointerdown(event: PointerEvent) {
+  // Whoever is pressing the strip is not the keyboard visitor that hold was
+  // put there for, and on a touchscreen a press is the only warning that the
+  // focus a tap left on a card is no longer being read from.
+  focusWithin.value = false
+
   if (event.pointerType === 'touch' || event.button !== 0) return
 
   pointer = event.pointerId
@@ -185,6 +205,28 @@ function onPointerup(event: PointerEvent) {
   scrolledAt = performance.now()
 }
 
+/**
+ * The browser has taken the gesture over, to pan with, most often. Whatever
+ * was being held is not being held now — and the `pointerleave` that would
+ * usually say so is not something every browser sends after a cancelled touch.
+ *
+ * A drag that loses its pointer capture some other way — the window going to
+ * the background, the button coming up somewhere the page cannot see — is
+ * `onPointerup`'s business too, and `lostpointercapture` is where it hears
+ * about it. Without that the drag would never be let go of.
+ */
+function onPointercancel(event: PointerEvent) {
+  resting.value = false
+  onPointerup(event)
+}
+
+function onPointerenter(event: PointerEvent) {
+  // A finger is not resting on anything; it is on its way somewhere.
+  if (event.pointerType === 'touch') return
+
+  resting.value = true
+}
+
 /** Swallow the click that ends a drag, so a drag over a link is not a visit. */
 function onClick(event: MouseEvent) {
   // A drag that ends outside the strip leaves no click to swallow, so this can
@@ -211,12 +253,22 @@ function onFocusin(event: FocusEvent) {
     && event.target.matches(':focus-visible')
 }
 
+/**
+ * Watch for the strip moving under anything other than the drift and stand
+ * aside when it does.
+ *
+ * Asking the position rather than listening for wheels and touches catches
+ * every way the strip can be moved — a trackpad, a swipe, the momentum that
+ * outlives the finger, a card being scrolled into view — and, more to the
+ * point, needs no event to tell it the visitor has finished. It reads the last
+ * movement, so it always runs out.
+ */
 function onScroll() {
-  normalize()
-}
+  const el = viewport.value
+  if (!el) return
 
-function onUserScroll() {
-  scrolledAt = performance.now()
+  if (!(Math.abs(el.scrollLeft - placed) <= 1)) scrolledAt = performance.now()
+  normalize()
 }
 
 /* The drift itself. */
@@ -234,7 +286,7 @@ function tick(now: number) {
   if (!el || !drifting(now)) return
 
   const target = el.scrollLeft + carry + props.speed * elapsed / 1000
-  el.scrollLeft = target
+  place(el, target)
   // Carry whatever the browser refused of a fractional step into the next
   // frame. Chrome snaps the offset to whole device pixels, so without this a
   // step under half a pixel rounds up every frame and the strip runs away, or
@@ -248,12 +300,16 @@ onMounted(() => {
   const el = viewport.value
   if (!el) return
 
-  const stillness = window.matchMedia('(prefers-reduced-motion: reduce)')
-  reducedMotion.value = stillness.matches
-  const onStillnessChange = (event: MediaQueryListEvent) => {
-    reducedMotion.value = event.matches
-  }
-  stillness.addEventListener('change', onStillnessChange)
+  const queries: [MediaQueryList, (matches: boolean) => void][] = [
+    [window.matchMedia('(prefers-reduced-motion: reduce)'), m => (reducedMotion.value = m)],
+    [window.matchMedia('(hover: hover)'), m => (canHover.value = m)]
+  ]
+  const listeners = queries.map(([query, set]) => {
+    set(query.matches)
+    const listener = (event: MediaQueryListEvent) => set(event.matches)
+    query.addEventListener('change', listener)
+    return () => query.removeEventListener('change', listener)
+  })
 
   // The strip's own box gives the width to fill; its first copy gives the
   // width to fill it with, and that one changes as images and fonts land.
@@ -275,7 +331,7 @@ onMounted(() => {
 
   onBeforeUnmount(() => {
     cancelAnimationFrame(request)
-    stillness.removeEventListener('change', onStillnessChange)
+    for (const remove of listeners) remove()
     resize.disconnect()
     intersection.disconnect()
   })
@@ -289,13 +345,12 @@ onMounted(() => {
     @pointerdown="onPointerdown"
     @pointermove="onPointermove"
     @pointerup="onPointerup"
-    @pointercancel="onPointerup"
+    @pointercancel="onPointercancel"
+    @lostpointercapture="onPointerup"
     @click.capture="onClick"
     @dragstart.prevent
     @scroll.passive="onScroll"
-    @wheel.passive="onUserScroll"
-    @touchmove.passive="onUserScroll"
-    @pointerenter="resting = true"
+    @pointerenter="onPointerenter"
     @pointerleave="resting = false"
     @focusin="onFocusin"
     @focusout="focusWithin = false"
