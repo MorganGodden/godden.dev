@@ -132,9 +132,8 @@ defineProps<{
       </div>
     </template>
 
-    <UMarquee
-      pause-on-hover
-      class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
+    <DraggableMarquee
+      class="py-2 -mx-8 sm:-mx-12 lg:-mx-16"
     >
       <Motion
         v-for="(project, index) in projects"
@@ -177,6 +176,6 @@ defineProps<{
           </span>
         </NuxtLink>
       </Motion>
-    </UMarquee>
+    </DraggableMarquee>
   </UPageHero>
 </template>
