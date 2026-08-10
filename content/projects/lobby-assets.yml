@@ -5,6 +5,8 @@ description:
   match details to export matchday announcements, lineup cards, and versus graphics
   across multiple formats for X, Instagram, Facebook, and TikTok.
 icon: i-lucide-images
+image: /projects/lobby-assets.png
+imageAnchor: left
 url: "https://lobbyassets.com/"
 tags: ["Web App", "Nuxt.js", "Cloudflare R2"]
 year: 2026
