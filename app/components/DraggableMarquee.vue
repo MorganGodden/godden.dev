@@ -29,8 +29,8 @@ const props = withDefaults(defineProps<{
 /** How far a pointer travels before a press counts as a drag, not a click. */
 const DRAG_THRESHOLD = 4
 
-/** How long the drift holds off after the visitor scrolls, in milliseconds. */
-const RESUME_DELAY = 1200
+/** How long the drift waits out the visitor's own scrolling, in milliseconds. */
+const RESUME_DELAY = 2000
 
 const viewport = ref<HTMLElement | null>(null)
 
@@ -48,19 +48,30 @@ let period = 0
 let carry = 0
 
 /* Everything that can hold the drift still. */
-const hovered = ref(false)
+
+/**
+ * A pointer resting on the strip, which holds the drift so that whatever
+ * caught the visitor's eye stays where they can look at it.
+ *
+ * Taking hold of the strip ends that hold. Someone who has just dragged it has
+ * said where they want it, and their pointer is left sitting wherever the drag
+ * happened to end rather than over anything they meant to stop on; leaving the
+ * strip and coming back to it arms the hold again.
+ */
+const resting = ref(false)
 const dragging = ref(false)
 const focusWithin = ref(false)
 const onScreen = ref(true)
 const reducedMotion = ref(false)
-let scrolledAt = 0
+/** When the visitor last scrolled; long ago, until they have. */
+let scrolledAt = Number.NEGATIVE_INFINITY
 
 function drifting(now: number) {
   return onScreen.value
     && !reducedMotion.value
     && !dragging.value
     && !focusWithin.value
-    && !(props.pauseOnHover && hovered.value)
+    && !(props.pauseOnHover && resting.value)
     && now - scrolledAt > RESUME_DELAY
 }
 
@@ -152,6 +163,7 @@ function onPointermove(event: PointerEvent) {
   if (!dragged) {
     dragged = true
     dragging.value = true
+    resting.value = false
     // Capture only once this is definitely a drag. Capturing on the press
     // would re-target the click that a plain press produces, and the links
     // inside would stop working.
@@ -183,6 +195,20 @@ function onClick(event: MouseEvent) {
   dragged = false
   event.preventDefault()
   event.stopPropagation()
+}
+
+/**
+ * Hold the strip still for a visitor working through it with the tab key, so
+ * the card they are on does not wander off while they read it.
+ *
+ * Only for them, though. Pressing on a card focuses it too, so counting every
+ * focus would leave the strip stopped for good after a drag: the card the drag
+ * began on keeps the focus long after the pointer has gone. `:focus-visible`
+ * is the platform's own answer to which of the two just happened.
+ */
+function onFocusin(event: FocusEvent) {
+  focusWithin.value = event.target instanceof Element
+    && event.target.matches(':focus-visible')
 }
 
 function onScroll() {
@@ -269,9 +295,9 @@ onMounted(() => {
     @scroll.passive="onScroll"
     @wheel.passive="onUserScroll"
     @touchmove.passive="onUserScroll"
-    @pointerenter="hovered = true"
-    @pointerleave="hovered = false"
-    @focusin="focusWithin = true"
+    @pointerenter="resting = true"
+    @pointerleave="resting = false"
+    @focusin="onFocusin"
     @focusout="focusWithin = false"
   >
     <div
